@@ -6,9 +6,13 @@ import { Component } from '@angular/core';
 })
 export class ServerComponent {
     serverId = 10;
-    serverOnline = Math.random(); /** 0 - 1, floating point random number */
+    serverOnline = (Math.random() > 0.5); /** 0 - 1, floating point random number */
 
     getServerStatus() {
-        return this.serverOnline > 0.5 ? 'online' : 'offline';
+        return this.serverOnline ? 'online' : 'offline';
+    }
+
+    statusToColor() {
+        return !this.serverOnline ? 'red' : 'white';
     }
 }
